@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Unity Games</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      color: #bbb;
+      font-size: 1.2rem;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .game-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+    .game-thumb {
+      width: 100%;
+      height: 150px;
+      background: #333;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    a.play-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff4757;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+    a.play-btn:hover {
+      background: #ff6b81;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Unity Games</h1>
+    <p class="subtitle">Play my collection of WebGL games hosted on GitHub Pages</p>
+  </header>
+
+  <section class="games-grid">
+    <!-- Game Card 1 -->
+    <a href="./Game1/" class="game-card" style="text-decoration:none; color:inherit; display:block;">
+      <div class="game-thumb"><img src="data:image/png;base64,REPLACE_BASE64_DATA" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" /></div>
+      <h2>Game 1</h2>
+      <p>A short description of the game.</p>
+    </a>
+
+    <!-- Game Card 2 -->
+    <a href="./Game2/" class="game-card" style="text-decoration:none; color:inherit; display:block;">
+      <div class="game-thumb"><img src="data:image/png;base64,REPLACE_BASE64_DATA" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" /></div>
+      <h2>Game 2</h2>
+      <p>A short description of the game.</p>
+    </a>
+
+    <!-- Game Card 3 -->
+    <a href="./Game3/" class="game-card" style="text-decoration:none; color:inherit; display:block;">
+      <div class="game-thumb"><img src="data:image/png;base64,REPLACE_BASE64_DATA" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" /></div>
+      <h2>Game 3</h2>
+      <p>A short description of the game.</p>
+    </a>
+
+    <!-- Game Card 4 -->
+    <a href="./Game4/" class="game-card" style="text-decoration:none; color:inherit; display:block;">
+      <div class="game-thumb"><img src="data:image/png;base64,REPLACE_BASE64_DATA" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" /></div>
+      <h2>Game 4</h2>
+      <p>A short description of the game.</p>
+    </a>
+  </section>
+</body>
+</html>
