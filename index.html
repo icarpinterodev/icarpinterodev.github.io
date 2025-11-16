@@ -141,40 +141,54 @@
       "midi/tsurupettan.mid"
     ];
 
-    let current = 0;
-    let isPlaying = false;
+  let current = 0;
+  let isPlaying = false;
 
-    const songTitleElem = document.getElementById("songTitle");
+  const songTitleElem = document.getElementById("songTitle");
 
-    function updateTitle() {
-      const filename = playlist[current].split('/').pop();
-      songTitleElem.textContent = filename;
-    }
+  function updateTitle() {
+    const filename = playlist[current].split('/').pop();
+    songTitleElem.textContent = filename;
+  }
 
-    function playSong() {
-      MIDIjs.play(playlist[current]);
-      isPlaying = true;
-      updateTitle();
-    }
+  function playSong() {
+    MIDIjs.play(playlist[current]);
+    isPlaying = true;
+    updateTitle();
+  }
 
-    function stopSong() {
-      MIDIjs.stop();
-      isPlaying = false;
-    }
+  function stopSong() {
+    MIDIjs.stop();
+    isPlaying = false;
+  }
 
-    function togglePlay() {
-      if (isPlaying) {
-        stopSong();
-      } else {
-        playSong();
-      }
-    }
-
-    function nextSong() {
+  function togglePlay() {
+    if (isPlaying) {
       stopSong();
-      current = (current + 1) % playlist.length;
-      playSong();
+    } else {
+      playRandomSong();
     }
+  }
+
+  function playRandomSong() {
+    // Pick a random index different from current
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * playlist.length);
+    } while (playlist.length > 1 && nextIndex === current);
+
+    current = nextIndex;
+    playSong();
+  }
+
+  function nextSong() {
+    playRandomSong();
+  }
+
+  // --- Play a random song immediately on page load ---
+  window.onload = () => {
+    playRandomSong();
+  };
   </script>
 
 
