@@ -135,16 +135,15 @@
   </div>
 
   <script>
-    // --- Playlist ---
-    const playlist = [
-      "midi/golden.mid",
-      "midi/silhouette.mid",
-      "midi/tsurupettan.mid"
-    ];
+  // --- Playlist ---
+  const playlist = [
+    "midi/golden.mid",
+    "midi/silhouette.mid",
+    "midi/tsurupettan.mid"
+  ];
 
   let current = 0;
   let isPlaying = false;
-
   const songTitleElem = document.getElementById("songTitle");
 
   function updateTitle() {
@@ -172,7 +171,6 @@
   }
 
   function playRandomSong() {
-    // Pick a random index different from current
     let nextIndex;
     do {
       nextIndex = Math.floor(Math.random() * playlist.length);
@@ -186,10 +184,27 @@
     playRandomSong();
   }
 
-  // --- Play a random song immediately on page load ---
-  window.onload = () => {
-    playRandomSong();
-  };
+  // --- Minimal interaction autoplay ---
+  let autoPlayed = false;
+
+  function tryAutoPlay() {
+    if (!autoPlayed) {
+      playRandomSong();
+      autoPlayed = true;
+
+      // Remove listeners after first interaction
+      window.removeEventListener('click', tryAutoPlay);
+      window.removeEventListener('keydown', tryAutoPlay);
+    }
+  }
+
+  // Listen for the first click or key press anywhere on the page
+  window.addEventListener('click', tryAutoPlay);
+  window.addEventListener('keydown', tryAutoPlay);
+
+  // Optional: update the title on load
+  window.onload = () => updateTitle();
+
   </script>
 
 
